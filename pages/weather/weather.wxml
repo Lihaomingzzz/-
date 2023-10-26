@@ -1,0 +1,10 @@
+<!-- 输入城市名称 
+  简易双向绑定
+-->
+<input model:value="{{city}}" style="height:10vh;border: #c20c0c solid 1rpx;" type="text"/>
+<button bindtap="getWeather" type="primary">查询</button>
+<view wx:for="{{weatherList}}">
+  <text>{{item.date}}</text>---
+  <text>{{item.week}}</text>---
+  <text>{{item.type}}</text>
+</view>

@@ -1,0 +1,34 @@
+<!-- 轮播图 -->
+<!-- swiper:滑块视图容器 -->
+<swiper indicator-dots="true" indicator-color="yellow"
+indicator-active-color="purple" autoplay="true"
+interval="3000" circular="true"
+ class="swiper-container">
+  <swiper-item wx:for="{{imgList}}">
+    <image src="{{item}}" mode=""/>
+  </swiper-item>
+</swiper>
+
+<!-- 搜索框 -->
+<view class="search-container">
+  <input type="text"/>
+  <view class="search-btn">搜索</view>
+</view>
+<!-- 歌曲列表 -->
+<view class="music-container" wx:for="{{musicList}}">
+  <view class="left">
+    <image src="{{item.pic}}" mode=""/>
+  </view>
+  <view class="center">
+    <view class="music-name">{{item.name}}</view>
+    <view class="artist-name">{{item.artist}}</view>
+  </view>
+  <view class="right">
+  <!-- 
+    open-type默认是navigate，不能跳tabbar页面
+   -->
+    <navigator open-type="navigate" url="/pages/play/play?id={{item.id}}">
+      <image src="/images/play.png" mode=""/>
+    </navigator>
+  </view>
+</view>

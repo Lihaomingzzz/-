@@ -1,0 +1,105 @@
+/* 设置跟屏幕一样大 */
+.play-container{
+  width: 100vw;
+  height: 100vh;
+  background-color: #222;
+  /* 给子标签设置上外边距时会传递给父标签，导致父标签外边距生效，如何解决？
+     办法1：给父标签设置边框
+     办法2：给父标签设置内边距
+     办法3：设置overflow:hidden
+  */
+  overflow: hidden;
+  
+}
+/* 歌曲名 */
+.music-name{
+  width: 100%;
+  font-size: 40rpx;
+  color: white;
+  margin-top: 5vh;
+  /* 水平垂直居中 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* 封面动画样式 */
+.cover-image{
+  width: 100%;
+  height: 50vh;
+  margin-top: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.cover-image image{
+  width: 58vw;
+  height: 58vw;
+  border-radius: 50%;
+  border: #333 solid 8vw;
+  box-sizing: border-box;
+  /* 添加动画，旋转 
+    css3:animation（动画） transition(过渡)
+    参数1：自定义的动画执行具体动作的名称
+    参数2：动画执行一次的时间
+    参数3：匀速执行
+    参数4：动画执行无限次
+  */
+  animation: zhuan 6s linear infinite;
+}
+/* 自定义动画
+  from:初始状态
+  to:最终状态
+  transform(转变)：包含旋转(rotate) 缩放(scale) 偏移(translate)
+  deg:角度  角度增加是顺时针
+*/
+@keyframes zhuan{
+  from{
+    transform: rotate(0deg);
+  }to{
+    transform: rotate(360deg);
+  }
+
+  /* 如果涉及多个阶段的状态改变，可以使用百分比 */
+  /* 0%{
+    transform: rotate(0deg) scale(1) translate(0rpx);
+  }50%{
+    transform: rotate(0deg) scale(1.5) translate(200rpx);
+  }100%{
+    transform: rotate(0deg) scale(1) translate(0rpx);
+  } */
+}
+/* 进度条 */
+.progress{
+  width: 100%;
+  height: 10vh;
+  margin-top: 5vh;
+  /* 弹性盒布局 */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.play-time,.total-time{
+  width: 15%;
+  color: white;
+}
+.progress slider{
+  width: 70%;
+}
+
+/* 控制栏 */
+.controls{
+  width: 100%;
+  height: 12vh;
+  background-color: #c20c0c;
+  position: absolute;
+  bottom: 0rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.controls image{
+  width: 16vw;
+  height: 16vw;
+}

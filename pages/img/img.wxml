@@ -1,0 +1,5 @@
+
+<view>
+    <image src="{{url}}" mode=""/>
+    <button bindtap = "getAcgImage" style="background-color: #bfa">请点击</button>
+</view>

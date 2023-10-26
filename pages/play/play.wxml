@@ -1,0 +1,31 @@
+<view class="play-container">
+  <view class="music-name">
+    {{music.name}}
+  </view>
+  <!-- 封面动画 -->
+  <view class="cover-image">
+  <!-- 
+    animation-play-state:动画的状态，
+    取值running(运行)和paused(暂停)
+   -->
+    <image style="animation-play-state:{{state=='play'?'running':'paused'}} ;"
+    src="{{music.album.blurPicUrl}}" mode=""/>
+  </view>
+  <!-- 进度条 -->
+  <view class="progress">
+      <view class="play-time">00:00</view>
+      <slider block-size="13" activeColor="#c20c0c"/>
+      <view class="total-time">03:50</view>
+  </view>
+  <!-- 控制栏 -->
+  <view class="controls">
+    <image src="/images/prev.png" mode=""/>
+    <!-- 点击事件 bindtap
+         state=='play'播放状态 pause.png
+         state!='play'暂停状态 play.png
+     -->
+    <image bindtap="pauseOrPlay" 
+    src="/images/{{ state=='play'?'pause':'play' }}.png" mode=""/>
+    <image src="/images/next.png" mode=""/>
+  </view>
+</view>
